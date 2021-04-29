@@ -1,10 +1,12 @@
 classes\ui\consola\Consola.class
 classes\excepciones\BaseDatosException.class
-classes\Main.class
-classes\datos\dao\CursoDao.class
-classes\logica\UniversidadFacade.class
-classes\ui\consola\EstudiantesCLI.class
 classes\datos\entidades\Estudiante.class
 classes\datos\dao\EstudianteDao.class
+classes\Main.class
+classes\datos\dao\CursoDao.class
+classes\datos\entidades\Curso.class
+classes\logica\UniversidadFacade.class
+classes\ui\consola\EstudiantesCLI.class
 classes\ui\consola\utils\EntradaTecladoUtils.class
 classes\excepciones\NoEncontradoException.class
+classes\ui\consola\CursosCLI.class

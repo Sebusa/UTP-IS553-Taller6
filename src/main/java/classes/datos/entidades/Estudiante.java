@@ -68,10 +68,10 @@ public class Estudiante implements Serializable {
     @Override
     public String toString() {
         return "Estudiante{" 
-                + "\n\tid=" + id 
-                + "\n, \tnombres=" + nombres 
-                + "\n, \tapellidos=" + apellidos 
-                + "\n, \ttelefono=" + telefono 
+                + "\n\t->id: " + id 
+                + "\n\t->Nombres: " + nombres 
+                + "\n\tApellidos: " + apellidos 
+                + "\n\tTelefono: " + telefono 
                 + "\n}";
     }
 
