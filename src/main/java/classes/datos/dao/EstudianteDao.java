@@ -25,7 +25,7 @@ public class EstudianteDao {
     private final EntityManagerFactory emf;
 
     private EstudianteDao() {
-        emf = Persistence.createEntityManagerFactory("clase20-pu");
+        emf = Persistence.createEntityManagerFactory("taller6-pu");
     }
 
     public Estudiante guardar(String nombres, String apellidos, String telefono) throws BaseDatosException {
@@ -83,4 +83,45 @@ public class EstudianteDao {
         return estudiante;
     }
     
+    public void modificar(String nombre,String apellido, 
+                                String telefono, Long id) throws BaseDatosException{
+        var em = emf.createEntityManager();
+        EntityTransaction et = null;
+        try{
+            et = em.getTransaction();
+            et.begin();
+            
+            var estudiante = em.find(Estudiante.class, id);
+            estudiante.setNombres(nombre);
+            estudiante.setApellidos(apellido);
+            estudiante.setTelefono(telefono);
+            
+            em.getTransaction().commit();
+            
+        } catch(Exception ex){
+            throw new BaseDatosException(ex.getMessage());
+        }
+        finally{
+            em.close();
+        }
+    }
+    
+     public void eliminar(Long id) throws BaseDatosException{
+        var em = emf.createEntityManager();
+        EntityTransaction et = null;
+        try{
+            et = em.getTransaction();
+            et.begin();
+            
+            var estudiante = em.find(Estudiante.class, id);
+            em.remove(estudiante);
+            em.getTransaction().commit();
+            
+        } catch(Exception ex){
+            throw new BaseDatosException(ex.getMessage());
+        }
+        finally{
+            em.close();
+        }
+    }
 }

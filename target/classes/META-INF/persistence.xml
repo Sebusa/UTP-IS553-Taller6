@@ -5,13 +5,13 @@
     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="clase20-pu">
+    <persistence-unit name="taller6-pu">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
             <property name="javax.persistence.jdbc.driver" 
                       value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url" 
-                      value="jdbc:h2:file:./clase20db" />
+                      value="jdbc:h2:file:./taller6db" />
             <property name="javax.persistence.jdbc.user" 
                       value="sa" />
             <property name="javax.persistence.jdbc.password" 

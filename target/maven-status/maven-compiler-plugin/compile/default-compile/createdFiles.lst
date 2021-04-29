@@ -1,6 +1,7 @@
 classes\ui\consola\Consola.class
 classes\excepciones\BaseDatosException.class
 classes\Main.class
+classes\datos\dao\CursoDao.class
 classes\logica\UniversidadFacade.class
 classes\ui\consola\EstudiantesCLI.class
 classes\datos\entidades\Estudiante.class

@@ -117,9 +117,74 @@ public class EstudiantesCLI {
     
     private static void modificarEstudiante(){
     
+        System.out.println("\n\n");
+        System.out.println("========================================================");
+        System.out.println(" Modificar estudiante");
+        System.out.println("========================================================");
+        String valor;
+        
+        do {
+            valor = EntradaTecladoUtils.obtenerCadena("Ingrese la identificación del estudiante: ");
+
+            if (valor == null
+                    || valor.trim().isBlank()
+                    || !valor.matches("[0-9]+")) {
+                System.err.println("Debe ingresar una identificación válida");
+                valor = null;
+            }
+        } while (valor == null);
+
+        var id = Long.valueOf(valor);
+        try {
+            var estudiante = facade.consultarEstudiante(id);
+            System.out.println(estudiante);
+            
+            if(estudiante != null){
+                String nuevoNombre = EntradaTecladoUtils.obtenerCadena("Ingresa los nuevos nombres:");
+                String nuevoApellido = EntradaTecladoUtils.obtenerCadena("Ingresa los nuevos apellidos:");
+                String nuevoTelefono = EntradaTecladoUtils.obtenerCadena("Ingresa el nuevo teléfono:");
+                
+                facade.modificarEstudiante(nuevoNombre,nuevoApellido,nuevoTelefono,id);
+            }
+        } catch (NoEncontradoException ex) {
+            System.err.println(ex.getMessage());
+        }
+        
+        EntradaTecladoUtils.presionaParaContinuar();
     }
     
     private static void eliminarEstudiante(){
     
+        System.out.println("\n\n");
+        System.out.println("========================================================");
+        System.out.println(" Eliminar estudiante");
+        System.out.println("========================================================");
+        String valor;
+        
+        do {
+            valor = EntradaTecladoUtils.obtenerCadena("Ingrese la identificación del estudiante: ");
+
+            if (valor == null
+                    || valor.trim().isBlank()
+                    || !valor.matches("[0-9]+")) {
+                System.err.println("Debe ingresar una identificación válida");
+                valor = null;
+            }
+        } while (valor == null);
+
+        var id = Long.valueOf(valor);
+        try {
+            var estudiante = facade.consultarEstudiante(id);
+            System.out.println(estudiante);
+            
+            if(estudiante != null){
+                facade.eliminarEstudiante(id);
+                System.out.println("Estudiante eliminado!");
+            }
+        } catch (NoEncontradoException ex) {
+            System.err.println(ex.getMessage());
+        }
+        
+        EntradaTecladoUtils.presionaParaContinuar();
     }
 }

@@ -38,5 +38,22 @@ public class UniversidadFacade {
     public Estudiante guardarEstudiante(String nombre, String apellido, String telefono) throws BaseDatosException {
         return estudianteDao.guardar(nombre, apellido, telefono);
     }
+    
+    public void modificarEstudiante(String nombre, String appellido,
+                                    String telefono, Long id) throws NoEncontradoException{
+        try{
+            estudianteDao.modificar(nombre, appellido, telefono, id);
+        } catch (BaseDatosException ex){
+            throw new NoEncontradoException("No existe el estudiante con identificacion " + id);
+        }
+    }
+    
+    public void eliminarEstudiante(Long id) throws NoEncontradoException{
+        try{
+            estudianteDao.eliminar(id);
+        } catch(BaseDatosException ex){
+            throw new NoEncontradoException("No existe el estudiante con identificacion " + id);
+        }
+    }
 
 }
